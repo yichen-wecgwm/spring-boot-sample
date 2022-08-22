@@ -22,8 +22,8 @@ maven-build:
 
 docker-build:
   stage: docker-build
-  services:
-    - docker:18.09.7-dind
+  #services:
+   # - docker:18.09.7-dind
   image: docker:18.09.7-dind 
  # image: docker:18.09.7
   script:

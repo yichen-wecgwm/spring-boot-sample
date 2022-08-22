@@ -10,23 +10,26 @@ stages:
   - docker-build
 
 maven-build:
-  stage: build
-  script: ./mvnw clean install
+  image: openjdk:11
+  stage: maven-build
+  script: 
+      - chmod +x mvnw
+      - ./mvnw clean install
   artifacts:
     paths:
       - target/*.jar
   rules:
     - if: '$CI_COMMIT_BRANCH == "master"'
-  tag:
+  tags:
     - master-k8s
 
 docker-build:
-  stage: docker
+  stage: docker-build
   script:
     - ls -l
     - ls target/
     - docker info
   rules:
     - if: '$CI_COMMIT_BRANCH == "master"'
-  tag:
+  tags:
     - master-k8s

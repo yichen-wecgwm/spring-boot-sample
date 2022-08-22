@@ -4,6 +4,7 @@
 
 variables:
   SPRING_PROFILES_ACTIVE: gitlab-ci
+  DOCKER_DRIVER: overlay
 
 stages:
   - maven-build

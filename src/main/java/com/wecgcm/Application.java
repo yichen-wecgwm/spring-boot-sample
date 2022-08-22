@@ -16,5 +16,4 @@ public class Application {
     public String readyProbe(){
         return "up!";
     }
-
 }

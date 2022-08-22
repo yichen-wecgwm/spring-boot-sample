@@ -10,9 +10,10 @@ stages:
   - docker-build
 
 maven-build:
+  image: openjdk:11
   stage: maven-build
   script: 
-      - chmod +x mvnw
+      - chmod +x gradlew
       - ./mvnw clean install
   artifacts:
     paths:

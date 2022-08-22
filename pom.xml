@@ -49,6 +49,20 @@
 <!--        </dependency>-->
     </dependencies>
 
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-jar-plugin</artifactId>
+                    <configuration>
+                        <outputDirectory>./target</outputDirectory>
+                    </configuration>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
+
 <!--    <build>-->
 <!--        <pluginManagement>-->
 <!--            <plugins>-->

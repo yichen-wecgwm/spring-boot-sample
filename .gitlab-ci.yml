@@ -1,0 +1,32 @@
+#image: gitlab/dind
+#services:
+#  - docker:dind
+
+variables:
+  SPRING_PROFILES_ACTIVE: gitlab-ci
+
+stages:
+  - maven-build
+  - docker-build
+
+maven-build:
+  stage: build
+  script: ./mvnw clean install
+  artifacts:
+    paths:
+      - target/*.jar
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "master"'
+  tag:
+    - master-k8s
+
+docker-build:
+  stage: docker
+  script:
+    - ls -l
+    - ls target/
+    - docker info
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "master"'
+  tag:
+    - master-k8s

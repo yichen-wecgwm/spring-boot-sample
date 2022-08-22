@@ -10,12 +10,11 @@ stages:
   - docker-build
 
 maven-build:
-  image: openjdk:11
   stage: maven-build
+  image: openjdk:11
   script: 
       - chmod +x mvnw
       - ./mvnw clean install
-      - sleep 3600
   artifacts:
     paths:
       - target/*.jar
@@ -26,6 +25,7 @@ maven-build:
 
 docker-build:
   stage: docker-build
+  image: dind
   script:
     - ls -l
     - ls target/

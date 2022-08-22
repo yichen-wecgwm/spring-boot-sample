@@ -31,7 +31,7 @@ maven-build:
 
 docker-build:
   stage: docker-build
-  image: docker:18.09.7-dind
+  image: docker:18.09.7
   script:
     - ls -l
     - ls target/

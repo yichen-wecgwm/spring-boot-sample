@@ -25,7 +25,7 @@ maven-build:
 
 docker-build:
   stage: docker-build
-  image: dind
+  image: jpetazzo/dind
   script:
     - ls -l
     - ls target/

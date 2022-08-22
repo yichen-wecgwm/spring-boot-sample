@@ -11,7 +11,9 @@ stages:
 
 maven-build:
   stage: maven-build
-  script: ./mvnw clean install
+  script: 
+      - chmod +x gradlew
+      - ./mvnw clean install
   artifacts:
     paths:
       - target/*.jar

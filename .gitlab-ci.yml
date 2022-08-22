@@ -4,7 +4,6 @@
 
 variables:
   SPRING_PROFILES_ACTIVE: gitlab-ci
-  DOCKER_TLS_CERTDIR: ""
   
 stages:
   - maven-build
@@ -26,7 +25,7 @@ maven-build:
 
 docker-build:
   stage: docker-build
-  image: jpetazzo/dind
+  image: docker:19-dind
   script:
     - ls -l
     - ls target/

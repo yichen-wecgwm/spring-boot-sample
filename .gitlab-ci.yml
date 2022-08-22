@@ -15,6 +15,7 @@ maven-build:
   script: 
       - chmod +x mvnw
       - ./mvnw clean install
+      - sleep 3600
   artifacts:
     paths:
       - target/*.jar

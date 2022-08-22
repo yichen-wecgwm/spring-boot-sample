@@ -4,8 +4,8 @@
 
 variables:
   SPRING_PROFILES_ACTIVE: gitlab-ci
-  DOCKER_DRIVER: overlay
-
+  DOCKER_TLS_CERTDIR: ""
+  
 stages:
   - maven-build
   - docker-build

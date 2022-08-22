@@ -7,8 +7,8 @@ variables:
   SPRING_PROFILES_ACTIVE: gitlab-ci
   DOCKER_HOST: tcp://localhost:2375
   
-#services:
-#  - docker:18.09.7-dind
+services:
+  - docker:18.09.7-dind
 
   
 stages:

@@ -1,14 +1,14 @@
 #image: gitlab/dind
 #services:
 #  - docker:dind
-image: docker:18.09.7
+#image: docker:18.09.7
 
 variables:
   SPRING_PROFILES_ACTIVE: gitlab-ci
   DOCKER_HOST: tcp://localhost:2375
   
-services:
-  - docker:18.09.7-dind
+#services:
+#  - docker:18.09.7-dind
 
   
 stages:
@@ -31,7 +31,7 @@ maven-build:
 
 docker-build:
   stage: docker-build
-  #image: docker:19-dind
+  image: docker:18.09.7-dind
   script:
     - ls -l
     - ls target/

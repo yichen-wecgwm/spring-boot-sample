@@ -12,7 +12,7 @@ stages:
 maven-build:
   stage: maven-build
   script: 
-      - chmod +x gradlew
+      - chmod +x mvnw
       - ./mvnw clean install
   artifacts:
     paths:

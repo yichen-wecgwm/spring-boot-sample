@@ -1,6 +1,5 @@
 variables:
   SPRING_PROFILES_ACTIVE: gitlab-ci
-  DOCKER_HOST: tcp://localhost:2375
   
 stages:
   - maven-build
@@ -22,14 +21,11 @@ maven-build:
 
 docker-build:
   stage: docker-build
-  #services:
-   # - docker:18.09.7-dind
   image: docker:18.09.7-dind 
- # image: docker:18.09.7
+  services:
+    - docker:18.09.7-dind
   script:
-    - ls -l
-    - ls target/
-    - until docker info; do sleep 1; done
+    - export DOCKER_HOST=tcp://localhost:2375
     - docker info
   rules:
     - if: '$CI_COMMIT_BRANCH == "master"'

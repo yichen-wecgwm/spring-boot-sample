@@ -1,5 +1,6 @@
 variables:
   SPRING_PROFILES_ACTIVE: gitlab-ci
+  CI_IMAGE_NAME: spring-boot-sample
   
 stages:
   - maven-build
@@ -26,8 +27,9 @@ docker-build:
     - docker:18.09.7-dind
   script:
     - export DOCKER_HOST=tcp://localhost:2375
-    - docker build -t spring-boot-sample:$CI_COMMIT_BRANCH .
-    - docker images
+    - docker build -t $CI_IMAGE_NAME:$CI_COMMIT_BRANCH .
+    - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" $CI_REGISTRY
+    - docker push "$CI_IMAGE_NAME:$CI_COMMIT_BRANCH"
   rules:
     - if: '$CI_COMMIT_BRANCH == "master"'
   tags:

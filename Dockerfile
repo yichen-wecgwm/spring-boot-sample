@@ -12,4 +12,5 @@ COPY --from=builder application/dependencies/ ./
 COPY --from=builder application/spring-boot-loader/ ./
 COPY --from=builder application/snapshot-dependencies/ ./
 COPY --from=builder application/application/ ./
+# TODO 添加启动参数
 ENTRYPOINT ["java", "org.springframework.boot.loader.JarLauncher"]

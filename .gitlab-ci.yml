@@ -26,6 +26,7 @@ docker-build:
     - docker:18.09.7-dind
   script:
     - export DOCKER_HOST=tcp://localhost:2375
+    - sleep 360
     - docker build -t spring-boot-sample:$CI_COMMIT_BRANCH .
   rules:
     - if: '$CI_COMMIT_BRANCH == "master"'

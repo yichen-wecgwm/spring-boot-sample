@@ -7,7 +7,7 @@ stages:
 
 maven-build:
   stage: maven-build
-  image: eclipse-temurin:11.0.16_8-jdk-alpine
+  image: eclipse-temurin:11-jdk-alpine
   script: 
       - chmod +x mvnw
       - ./mvnw clean install
@@ -27,7 +27,8 @@ docker-build:
     - docker:18.09.7-dind
   script:
     - export DOCKER_HOST=tcp://localhost:2375
-    - docker info
+    - echo $CI_COMMIT_BRANCH
+    - docker build -t spring-boot-sample:$CI_COMMIT_BRANCH .
   rules:
     - if: '$CI_COMMIT_BRANCH == "master"'
   tags:

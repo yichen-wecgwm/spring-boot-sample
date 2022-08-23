@@ -7,7 +7,7 @@ stages:
 
 maven-build:
   stage: maven-build
-  image: eclipse-temurin:11.0.16_8-jre-alpine
+  image: eclipse-temurin:11.0.16_8-jdk-alpine
   script: 
       - chmod +x mvnw
       - ./mvnw clean install

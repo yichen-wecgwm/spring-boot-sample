@@ -10,7 +10,7 @@ maven-build:
   image: eclipse-temurin:11-jdk-alpine
   script: 
       - chmod +x mvnw
-      - ./mvnw package spring-boot:repackage
+      - ./mvnw clean package
   artifacts:
     paths:
       - target/*.jar
@@ -26,8 +26,8 @@ docker-build:
     - docker:18.09.7-dind
   script:
     - export DOCKER_HOST=tcp://localhost:2375
-    - sleep 36000
     - docker build -t spring-boot-sample:$CI_COMMIT_BRANCH .
+    - docker images
   rules:
     - if: '$CI_COMMIT_BRANCH == "master"'
   tags:

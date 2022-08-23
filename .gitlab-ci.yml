@@ -7,10 +7,11 @@ stages:
 
 maven-build:
   stage: maven-build
-  image: openjdk:11
+  image: eclipse-temurin:11.0.16_8-jre-alpine
   script: 
       - chmod +x mvnw
       - ./mvnw clean install
+      - sleep 3600
   artifacts:
     paths:
       - target/*.jar

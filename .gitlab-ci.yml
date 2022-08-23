@@ -10,7 +10,7 @@ maven-build:
   image: eclipse-temurin:11-jdk-alpine
   script: 
       - chmod +x mvnw
-      - ./mvnw clean install
+      - ./mvnw package spring-boot:repackage
   artifacts:
     paths:
       - target/*.jar

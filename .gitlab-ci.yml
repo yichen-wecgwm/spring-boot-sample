@@ -39,7 +39,7 @@ docker-build:
 helm-deploy:
   stage: deploy
   script:
-    - helm upgrade -i -f helm/values-$CI_COMMIT_BRANCH.yaml -n java-application $APPLICATION_NAME  /usr/local/kubernetes/helm/spring-helm-templates
+    - helm upgrade -i -f helm/values-$CI_COMMIT_BRANCH.yaml -n spring-application $APPLICATION_NAME  /usr/local/kubernetes/helm/spring-helm-templates
   rules:
     - if: '$CI_COMMIT_BRANCH == "master"'
   tags:

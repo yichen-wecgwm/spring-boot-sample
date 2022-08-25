@@ -1,6 +1,6 @@
 variables:
   SPRING_PROFILES_ACTIVE: gitlab-ci
-  CI_IMAGE_NAME: spring-boot-sample
+  APPLICATION_NAME: spring-boot-sample
   
 stages:
   - maven-build
@@ -28,19 +28,19 @@ docker-build:
     - docker:18.09.7-dind
   script:
     - export DOCKER_HOST=tcp://localhost:2375
-    - docker build -t $CI_DOCKER_USER/$CI_IMAGE_NAME:$CI_COMMIT_BRANCH .
+    - docker build -t $CI_DOCKER_USER/$APPLICATION_NAME:$CI_COMMIT_BRANCH .
     - docker login -u "$CI_DOCKER_USER" -p "$CI_DOCKER_PASSWORD"
-    - docker push "$CI_DOCKER_USER/$CI_IMAGE_NAME:$CI_COMMIT_BRANCH"
+    - docker push "$CI_DOCKER_USER/$APPLICATION_NAME:$CI_COMMIT_BRANCH"
   rules:
     - if: '$CI_COMMIT_BRANCH == "master"'
   tags:
     - master-k8s
 
-deploy:
+helm-deploy:
   stage: deploy
   script:
-    - kubectl config get-contexts
-    - kubectl get pods
-    - helm list
+    - helm upgrade -i -f helm/values-$CI_COMMIT_BRANCH.yaml $APPLICATION_NAME /usr/local/kubernetes/helm/spring-helm-templates
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "master"'
   tags:
     - master-shell

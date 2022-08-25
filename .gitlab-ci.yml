@@ -1,1 +1,3 @@
-include: '/wecgwm/deploy/.gitlab-ci.yml'
+include:
+  - project: 'wecgwm1/deploy'
+    file: '/.gitlab-ci.yml'

@@ -11,7 +11,7 @@ fullnameOverride: ""
 
 server:
   port: 7777
-  context-path: /spring-boot-sample
+  contextPath: /spring-boot-sample
 
 resources:
   limits:

@@ -2,7 +2,7 @@ replicaCount: 1
 
 image:
   repository: wecgwm/spring-boot-sample
-  pullPolicy: IfNotPresent
+  pullPolicy: Always
   tag: "master"
 
 imagePullSecrets: []

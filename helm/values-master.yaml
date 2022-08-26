@@ -44,20 +44,18 @@ service:
   port: 7777
 
 ingress:
-  enabled: false #TODO
-  className: ""
+  enabled: true
   annotations: {}
-    # kubernetes.io/ingress.class: nginx
-    # kubernetes.io/tls-acme: "true"
+  # kubernetes.io/ingress.class: nginx
   hosts:
-    - host: chart-example.local
+    - host: wecgwm.com
       paths:
-        - path: /
+        - path: /spring-boot-sample
           pathType: ImplementationSpecific
-  tls: []
-  #  - secretName: chart-example-tls
-  #    hosts:
-  #      - chart-example.local
+  tls:
+    - secretName: chart-example-tls
+      hosts:
+        - chart-example.local
 
 autoscaling:
   enabled: false

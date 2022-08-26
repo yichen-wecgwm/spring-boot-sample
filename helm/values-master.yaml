@@ -47,9 +47,8 @@ ingress:
   enabled: true
   annotations: {}
   # kubernetes.io/ingress.class: nginx
-  hosts:
-    - host: "*"
-      paths:
+  http:
+    - paths:
         - path: /spring-boot-sample
           pathType: ImplementationSpecific
   tls:

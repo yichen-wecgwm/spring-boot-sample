@@ -8,3 +8,18 @@ server:
   port: 7777
   servlet:
     context-path: /spring-boot-sample
+  shutdown:  graceful
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+mock:
+  api:
+    key: ${MOCK_API_KEY:default_api_key}
+
+secret:
+  username: ${USER_NAME:default_user_name}
+  password: ${PASS_WORD:default_pass_word}

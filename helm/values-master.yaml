@@ -13,6 +13,22 @@ server:
   port: 7777
   contextPath: /spring-boot-sample
 
+env:
+  - name: MOCK_API_KEY
+    valueFrom:
+      configMapKeyRef:
+        name: java-config
+        key: MOCK_API_KEY
+  - name: MOCK_API_ENABLE
+    valueFrom:
+      configMapKeyRef:
+        name: java-config
+        key: MOCK_API_ENABLE
+
+envFrom:
+  - secretRef:
+      name:  java-secret
+
 resources:
   limits:
     cpu: 300m

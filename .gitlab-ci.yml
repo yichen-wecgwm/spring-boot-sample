@@ -3,4 +3,4 @@ include:
     file: '/ci/.gitlab-ci-template.yml'
 
 variables:
-  APPLICATION_NAME: spring-boot-sample
+  APPLICATION_NAME: spring-boot-sample 

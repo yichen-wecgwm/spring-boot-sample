@@ -51,7 +51,10 @@ ingress:
     - paths:
         - path: /spring-boot-sample
           pathType: ImplementationSpecific
-  tls: []
+  tls:
+    - secretName: chart-example-tls
+      hosts:
+        - chart-example.local
 
 autoscaling:
   enabled: false

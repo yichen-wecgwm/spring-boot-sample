@@ -1,4 +1,3 @@
-# todo 考虑改成 maven 镜像
 FROM adoptopenjdk:11-jre-hotspot-focal as builder
 WORKDIR application
 ARG JAR_FILE=target/*.jar

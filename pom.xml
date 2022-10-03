@@ -19,6 +19,7 @@
         <maven.compiler.target>11</maven.compiler.target>
         <lombok.version>1.18.24</lombok.version>
         <hutool.version>5.8.5</hutool.version>
+        <guava.version>31.1-jre</guava.version>
     </properties>
 
     <dependencies>
@@ -35,6 +36,11 @@
             <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
         <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <scope>provided</scope>
@@ -46,9 +52,9 @@
             <version>${hutool.version}</version>
         </dependency>
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-test</artifactId>
-            <scope>test</scope>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>${guava.version}</version>
         </dependency>
     </dependencies>
 

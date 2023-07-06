@@ -1,12 +1,10 @@
 FROM adoptopenjdk:11-jdk-hotspot-focal as builder
 WORKDIR application
-
 COPY mvnw .
 COPY .mvn .mvn
 COPY pom.xml .
 COPY src src
-RUN ./mvnw clean package
-
+RUN chmod +x mvnw && ./mvnw clean package
 ARG JAR_FILE=target/*.jar
 COPY ${JAR_FILE} application.jar
 RUN java -Djarmode=layertools -jar application.jar extract

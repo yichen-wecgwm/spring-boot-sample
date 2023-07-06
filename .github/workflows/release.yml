@@ -42,5 +42,5 @@ jobs:
   helm-deploy:
     needs: build-and-push
     runs-on: self-hosted
-    - steps:
+    steps:
     - run: ls -la

@@ -3,6 +3,10 @@ on:
   push:
     branches: [ "master" ]
 
+env:
+  FILE_PATH: /usr/local/deploy/
+  HELM_CHART_PATH: spring-helm-chart
+
 jobs:
   build-and-push:
     runs-on: ubuntu-latest
@@ -43,5 +47,5 @@ jobs:
   helm-deploy:
     runs-on: self-hosted
     steps:
-    - run: ls -la
+    - run: helm upgrade --install --atomic -f helm/values-${{ github.ref_name }}.yaml -n java ${{ github.event.repository.name }}  $FILE_PATH$HELM_CHART_PATH
     needs: build-and-push

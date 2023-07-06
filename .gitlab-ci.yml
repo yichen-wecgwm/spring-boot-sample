@@ -1,6 +1,0 @@
-include:
-  - project: 'wecgwm1/deploy'
-    file: '/gitlab-ci/.gitlab-ci-template.yml'
-
-variables:
-  APPLICATION_NAME: spring-boot-sample  

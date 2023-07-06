@@ -40,7 +40,7 @@ jobs:
         push: true
         tags: wecgwm/${{ github.event.repository.name }}:${{ github.ref_name }}
 
-  deploy:
+  helm-deploy:
     runs-on: self-hosted
     - steps:
     - run: ls -la

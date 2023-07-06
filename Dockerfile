@@ -1,11 +1,8 @@
-FROM adoptopenjdk:11-jdk-hotspot-focal as builder
+FROM adoptopenjdk:11-jre-hotspot-focal as builder
 WORKDIR application
-COPY mvnw .
-COPY .mvn .mvn
-COPY pom.xml .
-COPY src src
-RUN chmod +x mvnw && ./mvnw clean package
-RUN java -Djarmode=layertools -jar target/*.jar extract
+ARG JAR_FILE=target/*.jar
+COPY ${JAR_FILE} application.jar
+RUN java -Djarmode=layertools -jar application.jar extract
 
 FROM eclipse-temurin:11-jre
 WORKDIR application

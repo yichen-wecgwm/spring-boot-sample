@@ -39,8 +39,9 @@ jobs:
         context: .
         push: true
         tags: wecgwm/${{ github.event.repository.name }}:${{ github.ref_name }}
+
   helm-deploy:
-    needs: build-and-push
     runs-on: self-hosted
     steps:
     - run: ls -la
+    needs: build-and-push

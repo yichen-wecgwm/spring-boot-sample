@@ -2,19 +2,19 @@ name: Java CI
 on:
   push:
     branches: [ "master" ]
-    
+
 jobs:
-  build:
+  build-and-push:
     runs-on: ubuntu-latest
     steps:
-    # mvaen build
+    # maven build
     - uses: actions/checkout@v3
     - name: Set up JDK
       uses: actions/setup-java@v3
       with:
         java-version: '11'
         distribution: 'temurin'
-        # maven cache key: hash(pom.xml)
+        # cache key: ${{ platform }} ${{ packageManager }} ${{ pom.xml }}
         cache: maven
     - name: Build with Maven
       run: mvn -B package --file pom.xml
@@ -39,3 +39,9 @@ jobs:
         context: .
         push: true
         tags: wecgwm/${{ github.event.repository.name }}:${{ github.ref_name }}
+
+  deploy:
+    runs-on: self-hosted
+    - steps:
+    - run: ls -la
+    needs: build-and-push

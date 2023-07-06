@@ -1,6 +1,6 @@
 FROM adoptopenjdk:11-jre-hotspot-focal as builder
-WORKDIR application
-RUN java -Djarmode=layertools -jar target/*.jar extract
+WORKDIR application/target
+RUN java -Djarmode=layertools -jar *.jar extract
 
 FROM eclipse-temurin:11-jre
 WORKDIR application

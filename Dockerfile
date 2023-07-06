@@ -5,8 +5,7 @@ COPY .mvn .mvn
 COPY pom.xml .
 COPY src src
 RUN chmod +x mvnw && ./mvnw clean package
-RUN cd target
-RUN java -Djarmode=layertools -jar *.jar extract
+RUN java -Djarmode=layertools -jar target/*.jar extract
 
 FROM eclipse-temurin:11-jre
 WORKDIR application

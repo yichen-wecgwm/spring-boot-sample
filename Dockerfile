@@ -1,8 +1,6 @@
 FROM adoptopenjdk:11-jre-hotspot-focal as builder
 WORKDIR application
-ARG JAR_FILE=target/spring-boot-sample-1.0-SNAPSHOT.jar
-COPY ${JAR_FILE} application.jar
-RUN java -Djarmode=layertools -jar application.jar extract
+RUN java -Djarmode=layertools -jar target/*.jar extract
 
 FROM eclipse-temurin:11-jre
 WORKDIR application

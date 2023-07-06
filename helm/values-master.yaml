@@ -25,9 +25,9 @@ env:
         name: java-config
         key: MOCK_API_ENABLE
 
-envFrom:
-  - secretRef:
-      name:  java-secret
+#envFrom:
+#  - secretRef:
+#      name:  java-secret
 
 resources:
   limits:

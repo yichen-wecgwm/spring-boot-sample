@@ -6,7 +6,7 @@ image:
   tag: "master"
 
 podLabels:
-  metrics: true
+  metrics: enable
 
 imagePullSecrets: []
 nameOverride: ""

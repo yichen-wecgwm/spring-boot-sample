@@ -1,6 +1,6 @@
 # 一个简单的 spring-boot 模板项目
 ## TODO
-jenkins 
-elk (traceId)
-nacos、gateway
-自建仓库(maven/image)
+1. jenkins 
+2. elk (traceId)
+3. nacos、gateway
+4. 自建仓库(maven/image)

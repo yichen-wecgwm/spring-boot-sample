@@ -5,6 +5,9 @@ image:
   pullPolicy: Always
   tag: "master"
 
+podLabels:
+  metrics: true
+
 imagePullSecrets: []
 nameOverride: ""
 fullnameOverride: ""

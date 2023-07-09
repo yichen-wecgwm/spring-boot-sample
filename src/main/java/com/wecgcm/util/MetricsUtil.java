@@ -13,7 +13,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class MetricsUtil {
     private static final MeterRegistry REGISTRY = SpringApplicationContext.getBean(MeterRegistry.class);
-    private static final String PREFIX = "java";
+    private static final String PREFIX = "java.";
 
     public static BuilderWrap counter(String name){
         return new BuilderWrap(Counter.builder(PREFIX + name));

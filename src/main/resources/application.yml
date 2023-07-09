@@ -15,6 +15,9 @@ management:
     web:
       exposure:
         include: "*"
+  metrics:
+    tags:
+      application: ${spring.application.name}
 
 mock:
   api:
@@ -23,3 +26,5 @@ mock:
 secret:
   username: ${USER_NAME:default_user_name}
   password: ${PASS_WORD:default_pass_word}
+
+

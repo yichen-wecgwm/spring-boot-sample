@@ -1,6 +1,7 @@
 package com.wecgcm;
 
 import com.wecgcm.config.DemoConfiguration;
+import com.wecgcm.util.MetricsUtil;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
@@ -20,6 +21,9 @@ public class Application {
 
     @GetMapping("/up")
     public String readyProbe(){
+        MetricsUtil.counter("metrics.test")
+                .tag("hello", "world")
+                .increment();
         return "up!";
     }
 

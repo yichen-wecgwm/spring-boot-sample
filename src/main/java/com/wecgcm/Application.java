@@ -20,7 +20,7 @@ public class Application {
     }
 
     @GetMapping("/up")
-    public String readyProbe(){
+    public String up(){
         MetricsUtil.counter("metrics.test")
                 .tag("hello", "world")
                 .increment();

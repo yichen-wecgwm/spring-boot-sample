@@ -7,7 +7,7 @@ spring:
 server:
   port: 7777
   servlet:
-    context-path: /spring-boot-sample
+    context-path: /
   shutdown:  graceful
 
 management:

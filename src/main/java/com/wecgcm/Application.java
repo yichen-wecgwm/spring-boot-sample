@@ -1,7 +1,8 @@
 package com.wecgcm;
 
 import com.wecgcm.config.DemoConfiguration;
-import com.wecgcm.util.MetricsUtil;
+import io.micrometer.core.instrument.Counter;
+import io.micrometer.core.instrument.Metrics;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
@@ -21,8 +22,9 @@ public class Application {
 
     @GetMapping("/up")
     public String up(){
-        MetricsUtil.counter("metrics.test")
+        Counter.builder("metrics.test")
                 .tag("hello", "world")
+                .register(Metrics.globalRegistry)
                 .increment();
         return "up!";
     }

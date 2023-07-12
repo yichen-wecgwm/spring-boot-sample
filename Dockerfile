@@ -1,10 +1,10 @@
-FROM adoptopenjdk:11-jre-hotspot-focal as builder
+FROM eclipse-temurin:17.0.7_7-jre as builder
 WORKDIR application
 ARG JAR_FILE=target/*.jar
 COPY ${JAR_FILE} application.jar
 RUN java -Djarmode=layertools -jar application.jar extract
 
-FROM eclipse-temurin:11-jre
+FROM eclipse-temurin:17.0.7_7-jre
 WORKDIR application
 RUN addgroup --system springboot && adduser --system springboot --ingroup springboot
 USER springboot

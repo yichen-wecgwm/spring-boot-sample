@@ -21,7 +21,7 @@ management:
 
 logging:
   file:
-    path: logs
+    path: log/${POD_NAME}
 
 mock:
   api:

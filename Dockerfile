@@ -6,6 +6,7 @@ RUN java -Djarmode=layertools -jar application.jar extract
 
 FROM eclipse-temurin:17.0.7_7-jre
 WORKDIR application
+RUN chmod 777 ./log
 RUN addgroup --system springboot && adduser --system springboot --ingroup springboot
 USER springboot
 COPY --from=builder application/dependencies/ ./

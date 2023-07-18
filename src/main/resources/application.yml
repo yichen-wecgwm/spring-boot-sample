@@ -21,7 +21,7 @@ management:
 
 logging:
   file:
-    path: log/${spring.application.name}/${POD_NAME}
+    path: log/${spring.application.name}/${POD_NAME:local_dev}
 
 mock:
   api:

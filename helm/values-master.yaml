@@ -34,6 +34,16 @@ env:
 #  - secretRef:
 #      name:  java-secret
 
+volumeMounts:
+  - mountPath: /application/log
+    name: log-volume
+
+volumes:
+  - name: log-volume
+    hostPath:
+      path: /usr/local/log
+      type: Directory
+
 resources:
   limits:
     cpu: 300m

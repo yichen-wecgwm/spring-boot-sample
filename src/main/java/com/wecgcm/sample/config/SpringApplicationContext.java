@@ -1,4 +1,4 @@
-package com.wecgcm.config;
+package com.wecgcm.sample.config;
 
 import lombok.Getter;
 import lombok.NonNull;

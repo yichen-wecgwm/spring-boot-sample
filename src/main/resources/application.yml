@@ -22,6 +22,11 @@ management:
 logging:
   file:
     path: log/${spring.application.name}/${POD_NAME:local_dev}
+  level:
+    com:
+      # noinspection SpellCheckingInspection
+      wecgwm:
+        sample: ${SAMPLE_LOG_LEVEL:info}
 
 mock:
   api:

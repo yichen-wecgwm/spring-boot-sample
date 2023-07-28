@@ -29,6 +29,11 @@ env:
       configMapKeyRef:
         name: java-config
         key: MOCK_API_ENABLE
+  - name: SAMPLE_LOG_LEVEL
+    valueFrom:
+      configMapKeyRef:
+        name: java-config
+        key: SAMPLE_LOG_LEVEL
 
 #envFrom:
 #  - secretRef:

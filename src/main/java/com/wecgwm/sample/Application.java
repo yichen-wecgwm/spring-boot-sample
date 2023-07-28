@@ -1,6 +1,6 @@
-package com.wecgcm.sample;
+package com.wecgwm.sample;
 
-import com.wecgcm.sample.config.DemoConfiguration;
+import com.wecgwm.sample.config.DemoConfiguration;
 import io.micrometer.core.instrument.Counter;
 import io.micrometer.core.instrument.Metrics;
 import lombok.RequiredArgsConstructor;

@@ -1,4 +1,4 @@
-package com.wecgcm.sample.config;
+package com.wecgwm.sample.config;
 
 import lombok.Data;
 import org.springframework.beans.factory.annotation.Value;

@@ -17,7 +17,7 @@
     <properties>
         <maven.compiler.source>19</maven.compiler.source>
         <maven.compiler.target>19</maven.compiler.target>
-        <lombok.version>1.18.24</lombok.version>
+        <lombok.version>1.18.28</lombok.version>
         <hutool.version>5.8.5</hutool.version>
         <guava.version>31.1-jre</guava.version>
         <vavr.version>1.0.0-alpha-4</vavr.version>

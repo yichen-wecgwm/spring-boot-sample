@@ -3,12 +3,23 @@ spring:
     name: spring-boot-sample
   profiles:
     active: ${SPRING_PROFILES_ACTIVE:dev}
+  datasource:
+    url: jdbc:mysql://${MYSQL_DS}/dev_test?serverTimezone=UTC+8&characterEncoding=UTF-8
+    username: ${MYSQL_USER}
+    password: ${MYSQL_PWD}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
 
 server:
   port: 7777
   servlet:
     context-path: /
   shutdown:  graceful
+
+mybatis:
+  mapperLocations: classpath:mapper/**/*.xml
+  configuration:
+    map-underscore-to-camel-case: true
 
 management:
   endpoints:
